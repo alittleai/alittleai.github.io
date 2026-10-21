@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1 分钟拆完 120 万爆款 · 阿旺的 Prompt 库</title>
+<meta name="description" content="把爆款视频的文案丢给 AI，拆出钩子、结构、留人技巧，再用同样的结构写你自己的脚本">
+<meta property="og:title" content="1 分钟拆完 120 万爆款 · 阿旺的 Prompt 库">
+<meta property="og:description" content="把爆款视频的文案丢给 AI，拆出钩子、结构、留人技巧，再用同样的结构写你自己的脚本">
+<meta property="og:image" content="https://alittleai.github.io/assets/viral-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">留言「小白」的那支 · 阿旺的 Prompt 包</div>
+  <h1>老板叫我<br><em>1 分钟</em>拆完 120 万爆款</h1>
+  <p class="lede">把别人爆款视频的文案丢给 AI，它会告诉你开头为什么留人、整条怎么分段、结尾怎么骗你留言。再用同样的结构，帮你写自己的脚本。下面 3 段 prompt 按顺序用。</p>
+  <div class="flow"><span>复制爆款文案</span><span class="arrow">→</span><span>拆一条</span><span class="arrow">→</span><span>丢 5 条找规律</span><span class="arrow">→</span><span>写你的脚本</span></div>
+</header>
+
+<section>
+  <div class="step"><div class="num">0</div><h2>先把爆款文案拿出来</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>找爆款：</b>在你的领域里，找播放量明显比账号平均高很多的那几条</li>
+      <li><b>复制文案：</b>IG / 小红书的 caption 长按就能复制；视频里讲的话，看字幕抄下来就好</li>
+      <li><b>用什么 AI：</b>Claude 或 ChatGPT 都可以，视频里我用的是 Claude</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>拆解一条爆款</h2></div>
+  <div class="body">
+    <p>开一个新对话，贴上这段，再把文案贴在最后面：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>拆解单条爆款</span><button class="copy" data-target="p-one">Copy</button></div>
+<pre id="p-one">我会贴给你一条短视频的文案或字幕。请帮我拆解：
+1. 开头钩子：前3秒说了什么？为什么让人停下来？
+2. 结构：整条视频分成几段，每段的作用是什么？
+3. 留人技巧：中间用了哪些方法让人继续看下去？
+4. 结尾：怎么引导观众留言、收藏或关注？
+5. 可以学的地方：如果我要做同类型内容，最值得模仿的3个点是什么？
+
+请用简单的中文回答，每一点都举出原文里的句子做例子。
+
+文案如下：
+（把爆款视频的文案贴在这里）</pre>
+    </div>
+    <p class="note">叫它「举出原文里的句子做例子」很重要，不然它只会讲空泛的道理。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>一次丢 5 条，找共同规律</h2></div>
+  <div class="body">
+    <p>同一个对话继续，把 5 条同领域的爆款文案一起贴进去：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>找爆款共同规律</span><button class="copy" data-target="p-five">Copy</button></div>
+<pre id="p-five">以下是同一个领域里5条播放量很高的视频文案。请帮我找出：
+1. 它们开头的共同套路
+2. 结构上的共同规律
+3. 每隔几秒会出现一个新的信息点或转折
+4. 结尾都怎么引导互动
+5. 总结成一个我可以重复使用的「爆款模板」
+
+文案1：
+文案2：
+文案3：
+文案4：
+文案5：</pre>
+    </div>
+    <p class="note">一条爆款可能是运气，5 条都用同一招，就是规律。这一步最值钱。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>用同样的结构写你的脚本</h2></div>
+  <div class="body">
+    <p>还是同一个对话，把括号里的主题和观众换成你自己的：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>用爆款模板写新脚本</span><button class="copy" data-target="p-write">Copy</button></div>
+<pre id="p-write">请用上面找出来的爆款模板，帮我写一条30到40秒的短视频脚本。
+主题：（写你要拍的主题）
+我的观众：（例如：想学AI的上班族）
+要求：
+- 开头3秒先给结果或冲突，不要铺垫
+- 每5到7秒抛出一个新的好处或转折
+- 结尾引导观众留言
+- 口语化，像朋友在讲话
+请分成「画面」和「旁白」两栏写出来。</pre>
+    </div>
+    <p class="note">用完不要跟我老板讲很好用，不然他又叫我加班。</p>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>阿旺的动作片段和配音是在 Higgsfield 做的。用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
