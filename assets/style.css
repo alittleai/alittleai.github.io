@@ -74,3 +74,5 @@ footer strong{font-family:var(--serif);color:var(--fg);font-size:18px;display:bl
 .card:focus-visible{outline:2px solid var(--yellow);outline-offset:4px;border-radius:10px}
 .soon{display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px;text-align:center;padding:12px}
 .hero-av{width:84px;height:84px;border-radius:50%;border:2px solid var(--line)}
+.shot{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin:16px 0 6px}
+.cap{font-size:13px;color:var(--muted);margin:0 0 8px}

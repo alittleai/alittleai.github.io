@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>夜市招牌炒饭 · 阿旺的 Prompt 库</title>
+<meta name="description" content="用 GPT 把你自己炒的那盘拍得好吃，不要变成密集恐惧症的 AI 炒饭">
+<meta property="og:title" content="夜市招牌炒饭 · 阿旺的 Prompt 库">
+<meta property="og:description" content="用 GPT 把你自己炒的那盘拍得好吃，不要变成密集恐惧症的 AI 炒饭">
+<meta property="og:image" content="https://alittleai.github.io/assets/friedrice-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Pasar Malam Collection · 阿旺的 Prompt 包</div>
+  <h1>别再让 AI 画<br>那种<em>恶心的炒饭</em>了</h1>
+  <p class="lede">招牌上的食物不要叫 AI 凭空画，拍你自己炒的那盘，再让 GPT 只换光线。客人看到的，就是端上来的那盘。</p>
+  <div class="flow"><span>拍你自己的饭</span><span class="arrow">→</span><span>GPT 修图</span><span class="arrow">→</span><span>Canva 加字做招牌</span></div>
+</header>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>拍你自己炒的那盘</h2></div>
+  <div class="body">
+    <ul>
+      <li>手机随手拍就好，光线不用管，后面会换掉</li>
+      <li>整盘入镜，碟子和汤匙一起拍进去</li>
+      <li>你卖什么就拍什么，炒面、沙爹、roti 都一样</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>GPT 修图，只换光不换饭</h2></div>
+  <div class="body">
+    <p>开一个<b>新的 GPT 对话</b>，上传你的照片，贴上这段：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>夜市暖光修图</span><button class="copy" data-target="p-fix">Copy</button></div>
+<pre id="p-fix">Use the attached photo of the real dish as the base. Keep the exact same food, portion and plate — do not invent new ingredients.
+Lighting: warm tungsten hawker-stall bulb from upper left, soft shadow falling on the right side of the plate, night market ambience, no studio light.
+Make it look like a real food photo: uneven rice grains, some clumped, some broken, light char and wok-hei browning, natural oil sheen, garnish scattered imperfectly.
+45-degree angle, 50mm lens, shallow depth of field, background softly blurred.
+No text, no logo, no watermark.</pre>
+    </div>
+    <img class="shot" src="../assets/friedrice-after.jpg" alt="GPT 修图后的炒饭：暖黄灯从左上照下来，饭粒有大有小，叉烧有焦边" loading="lazy">
+    <p class="cap">一分钟出来的样子：同一盘饭，只换了光</p>
+
+    <p>出来的图如果还是<b>太整齐、太完美</b>，在同一个对话再补一句：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>太完美时补一句</span><button class="copy" data-target="p-less">Copy</button></div>
+<pre id="p-less">Less perfect, keep the rice grains uneven and natural.</pre>
+    </div>
+    <p class="note">千万不要叫它“更完美”。越完美，饭粒就越像一颗颗排好的砖头，有密集恐惧症的客人看了直接跑。不是炒饭的话，把 <code class="chip">rice grains</code> 换成你的食物，例如 <code class="chip">noodles</code>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>做成招牌</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>字自己加：</b>店名、价钱用 Canva 放上去，不要叫 GPT 写字，它很容易写错</li>
+      <li><b>印之前放大：</b>布条招牌很大，图要先用 AI 放大到高清，不然印出来是糊的</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
