@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RM2.50 奶茶广告 · 阿旺的 Prompt 库</title>
+<meta name="description" content="夜市色素奶茶拍成奢侈品广告的完整 prompt、设定和剪辑做法">
+<meta property="og:title" content="RM2.50 奶茶广告 · 阿旺的 Prompt 库">
+<meta property="og:description" content="夜市色素奶茶拍成奢侈品广告的完整 prompt、设定和剪辑做法">
+<meta property="og:image" content="https://alittleai.github.io/assets/milktea-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Pasar Malam Collection · 阿旺的 Prompt 包</div>
+  <h1>RM2.50 色素奶茶，<br>拍成<em>奢侈品广告</em></h1>
+  <p class="lede">一张夜市随手拍的照片，变成一支 10 秒的高级饮料广告。下面是我实际用的全部 prompt 和设定，照着 copy 就行。</p>
+  <div class="flow"><span>随手拍</span><span class="arrow">→</span><span>GPT 出首帧</span><span class="arrow">→</span><span>Higgsfield 生成</span><span class="arrow">→</span><span>CapCut 剪 10 秒</span></div>
+</header>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>随手拍一张</h2></div>
+  <div class="body">
+    <ul>
+      <li>杯子、塑胶袋、吸管都要拍清楚，整杯入镜</li>
+      <li>光线不用管，后面会换掉</li>
+      <li>不想拍？网上找一张奶茶照片也可以</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>GPT 生成广告首帧</h2></div>
+  <div class="body">
+    <p>开一个<b>新的 GPT 对话</b>，上传你的照片，贴上这段：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>黑底杯子首帧</span><button class="copy" id="copy-hero" data-target="p-hero">Copy</button></div>
+<pre id="p-hero">Use the uploaded photo as the exact reference for the drink. Keep the cup identical: clear plastic cup, frosted dome-less flat lid with ridged rim, bright yellow straw, sky-blue milk tea, black tapioca pearls at the bottom, and the pink plastic bag tied around the cup exactly as in the photo. Do not upgrade, clean, or redesign anything — it must still look like a cheap night-market drink.
+
+New setting: a luxury perfume-commercial studio. Seamless pure black background, the cup standing alone on a glossy black surface with a faint reflection.
+
+Lighting (one fixed setup): a single narrow strip softbox as key light from the upper left at about 45 degrees, neutral-cool daylight around 5600K, lighting the left side of the cup; the right side falls into deep shadow. One thin rim light from behind on the right, outlining the cup edge and the pink bag. No other light sources.
+
+Real photo texture: uneven condensation droplets on the cup (different sizes, some running), small scratches on the plastic, pearls slightly different in size and partly clumped, blue drink slightly uneven in color near the bottom.
+
+Shot: vertical 9:16, low angle, 100mm macro product shot, shallow depth of field, cup fills two-thirds of the frame. No text, no logo, no watermark.</pre>
+    </div>
+    <p class="note">重点是杯子、塑胶袋、吸管一样都不能变。便宜的杯子配上奢侈品的光，笑点就在这里。你的饮料不一样的话，把第一段的描述换成你的杯子就好。</p>
+
+    <p>再开一个<b>新对话</b>，上传你的原图和刚生成的首帧，生成一张珍珠特写：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>珍珠落下特写</span><button class="copy" id="copy-pearl" data-target="p-pearl">Copy</button></div>
+<pre id="p-pearl">Image 1 is the color reference for the drink: match this exact sky-blue milk tea color and these black tapioca pearls. Image 2 is the lighting reference: match its black studio and light exactly.
+
+Create a high-end beverage commercial macro photo, vertical 9:16.
+
+Scene: extreme close-up at liquid level of a perfectly still surface of sky-blue milk tea filling the lower third of the frame. Four black tapioca pearls are frozen in mid-air, falling toward the surface: the lowest one is about to touch the liquid, the others are higher at staggered heights. Nothing has hit the surface yet — no splash, no ripples.
+
+Lighting (one fixed setup, same as Image 2): pure black background. Cool-white key light from the front-left lights the pearls' left sides and the front of the liquid surface. A thin rim light from behind on the right gives each pearl a bright edge highlight. The right sides of the pearls fall into shadow. No other light sources.
+
+Real photography texture, not CGI: pearls slightly different in size and shape, glossy with a sticky syrup sheen and a few matte spots; the milk tea surface has tiny bubbles and a slightly uneven tone; very shallow depth of field, the farthest pearl slightly soft.
+
+Camera: 100mm macro lens look, camera exactly at the liquid surface height. No cup visible, no text, no logo, no watermark.</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>Higgsfield 一次生成 15 秒广告</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">模型 <b>Seedance 2.5</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">比例 <b>9:16</b></span>
+      <span class="chip">长度 <b>15s</b></span>
+      <span class="chip">码率 <b>High</b></span>
+      <span class="chip">原生音频 <b>开</b></span>
+    </div>
+    <p>三张图当参考图上传，<b>顺序不能错</b>：</p>
+    <ul class="order">
+      <li><code>Image 1</code><span>第 2 步的黑底杯子首帧</span></li>
+      <li><code>Image 2</code><span>你拍的原图</span></li>
+      <li><code>Image 3</code><span>珍珠落下特写</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>15 秒多镜头广告</span><button class="copy" id="copy-ad" data-target="p-ad">Copy</button></div>
+<pre id="p-ad">Image 1 is the hero shot and the look reference: the cup in a black studio — copy its framing for Shot 1 and its lighting for every shot. Image 2 is the reference for the real drink: a cheap night-market sky-blue milk tea in a ridged clear plastic cup, frosted flat lid, yellow straw, black tapioca pearls at the bottom, a pink plastic bag tied around the cup. Image 3 is the reference for the black tapioca pearls. In every shot the cup, pink bag, yellow straw and blue color stay exactly like the references — it must still look like a cheap plastic-bag drink. No text, no logo.
+
+Lighting (fixed for every shot): pure black studio, cool-white key light from the front-left, a thin rim light from behind on the right outlining every edge, glossy black floor with reflections. No other light sources.
+
+A fast, high-energy luxury beverage commercial with hard cuts, each shot about 2 seconds, escalating in scale:
+
+Shot 1: the hero cup exactly as in Image 1; a sharp light sweep runs across the cup from left to right, the camera snaps forward toward it.
+Shot 2: macro inside the drink — sky-blue milk tea swirling into a vortex, black pearls spiralling upward through it, slow motion.
+Shot 3: black pearls burst upward out of a sky-blue milk tea splash and hang frozen in the air, ultra slow motion, the camera slowly orbits around them. Every splash and droplet is sky-blue milk tea, not white.
+Shot 4: the pink plastic bag ripples in slow motion like luxury silk in the wind against black, its edges glowing from the rim light.
+Shot 5: the yellow straw stabs down through the lid in one fast move, a small sky-blue splash bursts from the straw hole.
+Shot 6: final hero shot — the cup lands on the glossy black floor, a ring of sky-blue splash bursts out around its base and falls back, low-angle camera slowly pushes in, the cup centered with empty black space above it for a title.
+
+Audio: native sound effects only, no music, no voice — a deep whoosh on each cut, liquid swirls, a crisp straw stab, and a heavy bass impact when the cup lands.</pre>
+    </div>
+    <p class="note">我这支 15 秒花了 105 credit。第 3 镜特别写了“溅起来是蓝色，不是白色”，不写的话，模型很容易溅出白牛奶。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>CapCut 剪到 10 秒</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>剪短：</b>漩涡那镜最拖，剪到 1 秒多</li>
+      <li><b>变速：</b>漩涡、塑胶袋、吸管加速 1.3–1.6 倍；珍珠爆起那镜保留慢动作</li>
+      <li><b>转场：</b>每次切镜头加“闪白”，约 3 帧</li>
+      <li><b>冲击感：</b>每镜开头用关键帧缩放 108% → 100%，约 0.2 秒</li>
+      <li><b>音乐：</b>搜 <code class="chip">luxury</code> 或 <code class="chip">epic trailer</code>，用“踩点”让最重的鼓点对准杯子落地</li>
+      <li><b>结尾字：</b>「色素，是一种回忆」</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
