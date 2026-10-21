@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一句中文剪好这条片 · 阿旺的 Prompt 库</title>
+<meta name="description" content="不会剪片？把素材丢给 Claude，打一句中文，它帮你剪好整条短视频">
+<meta property="og:title" content="一句中文剪好这条片 · 阿旺的 Prompt 库">
+<meta property="og:description" content="不会剪片？把素材丢给 Claude，打一句中文，它帮你剪好整条短视频">
+<meta property="og:image" content="https://alittleai.github.io/assets/cut-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">留言「剪」的那支 · 阿旺的 Prompt 包</div>
+  <h1>不会剪片？<br><em>一句中文</em>剪好这条片</h1>
+  <p class="lede">这条片我没开过剪辑软件。素材准备好丢给 Claude，打一句中文，它自己挑镜头、上字幕、配音效、做转场。</p>
+  <div class="flow"><span>准备素材</span><span class="arrow">→</span><span>丢给 Claude</span><span class="arrow">→</span><span>叫它改到满意</span></div>
+  <img class="shot" src="../assets/cut-frames.jpg" alt="成片截图：Claude 大标题、录屏快进、杂志封面排版、玻璃指令卡片" loading="lazy">
+  <p class="cap">成片里的几个画面，全部是 Claude 剪的</p>
+</header>
+
+<section>
+  <div class="step"><div class="num">0</div><h2>先讲清楚，要有这些</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>能上传文件、能跑代码的 Claude</b>，我用的是 Pro 版桌面 App</li>
+      <li><b>它会花时间：</b>我这条 30 秒的片，它第一次剪了大概 9 分钟</li>
+      <li><b>第一版不会完美：</b>出来后我还叫它改了几次，这是正常的</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>准备素材</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>一条完整配音：</b>整段台词一次录好，句子之间停半秒，剪的时候比较好对</li>
+      <li><b>说话画面：</b>角色对嘴的片段，长度要比配音长一点</li>
+      <li><b>动作片段：</b>几段 5 秒左右的动作，穿插用，越夸张越好</li>
+      <li>全部用<b>竖屏 9:16</b>，素材名字取得清楚一点，例如「配音」「说话」「动作1」</li>
+    </ul>
+    <p class="note">阿旺的说话画面是 HeyGen 对嘴做的，动作片段是 Higgsfield 上的 Seedance 生成的。你用自己拍的片段也一样可以。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>丢给 Claude，打这一句</h2></div>
+  <div class="body">
+    <p>视频里我打的就是这一句。素材全部上传，然后贴上：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>视频里那一句</span><button class="copy" data-target="p-one">Copy</button></div>
+<pre id="p-one">帮我把这些素材剪成一条 30 秒的片</pre>
+    </div>
+    <p>只打这一句也能剪，但想<b>一次就剪得比较好</b>，用这个加强版：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>加强版：一次剪好</span><button class="copy" data-target="p-full">Copy</button></div>
+<pre id="p-full">帮我把这些素材剪成一条 30 秒的竖屏短视频（1080×1920）。
+
+素材：
+- 配音：整条配音，顺序不要改，句子不要删
+- 说话画面：角色对嘴的画面
+- 动作片段：穿插用，每段只取最好看的 1–2 秒
+
+节奏：每 2 秒左右换一次画面，说话画面和动作画面交替，不要一个镜头停太久。
+字幕：放在画面下方，跟着配音逐字亮起，关键词用黄色，句尾不要句号。
+大标题：每句的重点词做成大字，放在角色身后，让角色挡住一部分字。
+镜头：每个镜头都要动，推近、拉远或上下摇。
+转场：用上下推、缩放模糊、漏光，不要只是硬切。
+音效：转场加嗖声，重点字出来加砰一声，不要背景音乐。
+
+先给我看几张截图确认风格，我说可以再出完整视频。</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>叫它改到满意</h2></div>
+  <div class="body">
+    <p>第一版出来后，<b>说秒数 + 要改什么</b>，它就只改那一段。我用过的几句：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>常用修改句</span><button class="copy" data-target="p-fix">Copy</button></div>
+<pre id="p-fix">字幕太小，放大一点
+第 6 到 9 秒太单调，加推拉镜头和转场
+对话框、字幕框改成磨砂玻璃效果
+结尾最后几秒没有声音，检查音轨是不是比画面短
+文件太大传不了，压到 25MB 以内给我</pre>
+    </div>
+    <p class="note">不要一次丢一大堆修改。一次改一两样，改坏了也容易讲回来。</p>
+  </div>
+</section>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
