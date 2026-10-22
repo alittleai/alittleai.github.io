@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>随手拍的裙子，AI 做成走秀广告 · 阿旺的 Prompt 库</title>
+<meta name="description" content="商场随手拍一件裙子，用 GPT 生模特、Seedance 2.5 一次拍出 15 秒走秀广告的完整 prompt 和设定">
+<meta property="og:title" content="随手拍的裙子，AI 做成走秀广告 · 阿旺的 Prompt 库">
+<meta property="og:description" content="商场随手拍一件裙子，用 GPT 生模特、Seedance 2.5 一次拍出 15 秒走秀广告的完整 prompt 和设定">
+<meta property="og:image" content="https://alittleai.github.io/assets/runway-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Runway Collection · 阿旺的 Prompt 包</div>
+  <h1>随手拍一件裙子，<br>AI 变<em>走秀广告</em></h1>
+  <p class="lede">商场里随手拍的 5 秒视频，变成一支 15 秒、多机位的 T 台走秀广告。没有模特，没有 T 台，没有摄影师。下面是我实际用的全部 prompt 和设定，照着 copy 就行。</p>
+  <div class="flow"><span>随手拍衣服</span><span class="arrow">→</span><span>GPT 生模特</span><span class="arrow">→</span><span>GPT 穿上裙子</span><span class="arrow">→</span><span>GPT 出 T 台首帧</span><span class="arrow">→</span><span>Seedance 2.5 出片</span></div>
+</header>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>随手拍衣服</h2></div>
+  <div class="body">
+    <ul>
+      <li>衣服挂着就好，拿着衣架<b>转一圈</b>，正面、侧面、背面都拍到</li>
+      <li>手机拍 4K 视频，之后截图当参考图就够清楚</li>
+      <li>刺绣、拼接线、下摆这些细节要拍清楚，AI 最容易在这里走样</li>
+      <li>防盗扣、衣架、店里背景都没关系，后面会叫 GPT 拿掉</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>GPT 生成模特的脸</h2></div>
+  <div class="body">
+    <p>开一个<b>新的 GPT 对话</b>，先只做脸，<b>不要上传衣服</b>：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>模特正面定妆照</span><button class="copy" data-target="p-face">Copy</button></div>
+<pre id="p-face">Create a realistic close-up beauty portrait of a fashion runway model. This is a character reference photo, so the face must be clear, natural and photographic.
+
+[Subject] Malaysian Chinese woman, about 23 years old, professional runway model. Calm, quietly confident, slightly aloof expression, brows relaxed with no frown between them, not smiling, lips closed and relaxed. Head-and-shoulders framing, facing the camera straight on, eyes looking directly into the lens, chin level (not raised). Bare shoulders with thin cream-colored spaghetti straps just visible.
+
+[Face] Long oval face with a defined jawline and high cheekbones; straight, natural, slightly unruly brows (not over-groomed); almond-shaped single-lid eyes with a subtle inner fold; straight narrow nose bridge; medium lips with a soft natural shape. Memorable but not perfect: the left brow sits very slightly higher than the right, and a tiny mole below the right outer corner of the eye. Natural facial asymmetry. She must not resemble any real celebrity.
+
+[Hair] Sleek runway hair: black hair pulled tightly back from a clean center parting into a smooth low bun at the nape of the neck. The hair lies flat and smooth against the head with a soft natural sheen. No loose strands around the face, ears or neck; only two or three very fine baby hairs at the hairline near the temples. Ears visible.
+
+[Makeup] Runway "no-makeup" look: light sheer base that still shows real skin, soft brown definition on brows, thin natural lashes, light nude lip with visible lip lines and slightly uneven color. No heavy contour, no glitter, no false lashes.
+
+[Skin] Real photographic skin with a natural satin-matte finish: visible pores mainly on the nose and cheeks (fewer on the forehead), only a small soft highlight on the nose tip and the top of the cheekbones; forehead, neck, collarbones and shoulders matte, not shiny or sweaty. Slightly uneven skin tone (a touch of redness around the nose, slightly darker under the eyes), fine vellus hair on the cheek visible against the light.
+
+[Light] One single soft light from the front-left at about 45 degrees, slightly above eye level, like a large window: the left side of her face is lit, the right side falls into a clearly visible soft gradual shadow with shading under the cheekbone and along the jaw. One natural catchlight in each eye. Neutral daylight color. No other lights, no flat front fill.
+
+[Background] Plain medium-grey seamless studio backdrop, softly out of focus. No props, no text.
+
+[Photo quality] Real camera photo, 85mm portrait lens look, shallow depth of field, natural optical softness, restrained micro-contrast, RAW-style unretouched look.
+
+[Avoid] Skin smoothing, plastic or waxy skin, beauty filter, influencer face, CGI or 3D look, HDR sharpening, uniformly sprinkled pores, oily or sweaty shine, messy loose hair, frowning, glossy lips, oversized eyes, celebrity resemblance, text, watermark.</pre>
+    </div>
+    <p>脸满意之后，<b>在同一个对话</b>接着做 3/4 侧面：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>3/4 侧面</span><button class="copy" data-target="p-34">Copy</button></div>
+<pre id="p-34">Using the approved portrait above, create a three-quarter view of the SAME woman. Keep her identity exactly the same: same face shape, eyes, brows, nose, lips, mole under the right eye, skin texture, freckles, makeup, sleek center-parted hair and low bun.
+
+Pose: head and body turned about 45 degrees to her left (toward the right side of the frame), eyes looking straight ahead in the direction her face points, not at the camera. Chin level, neutral calm expression, lips closed. The low bun at the nape is now visible. Head-and-shoulders framing with the same thin cream spaghetti straps.
+
+Light: same single soft light from the front-left at about 45 degrees, slightly above eye level. The side of her face turned toward the light is lit; the far side falls into soft gradual shadow. Neutral daylight color. No other lights.
+
+Same plain medium-grey seamless backdrop, same real camera photo quality, 85mm portrait lens look, natural optical softness, satin-matte skin with real pores. No skin smoothing, no beauty filter, no text.</pre>
+    </div>
+    <p class="note">我踩过的坑：3/4 侧面出来，痣跑到了另一边脸（AI 很常左右镜像）。不修的话，视频里她会“换脸”。用 GPT 的选区工具把错的那颗涂掉、在对的位置补一颗就好，不用整张重做。最后把正面和侧面拼成一张图，后面上传 Seedance 用。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>GPT 让她穿上这件裙子</h2></div>
+  <div class="body">
+    <p>开一个<b>新的对话</b>，按顺序上传：模特正面图、衣服正面截图、刺绣特写截图，贴上这段（裙子的描述换成你的衣服）：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>全身正面（穿上裙子）</span><button class="copy" data-target="p-front">Copy</button></div>
+<pre id="p-front">Image 1 is the model: use her face, hair and skin exactly. Image 2 is the exact dress she must wear. Image 3 is a close-up of the dress embroidery.
+
+Create a full-body fashion reference photo of the woman from Image 1 wearing the dress from Image 2, standing still and facing the camera, head to toe fully in frame, vertical 9:16.
+
+Dress (must match Image 2 exactly):
+- Pale butter-cream color, lightweight crinkled fabric with fine wrinkle texture, slightly sheer, soft drape.
+- Thin spaghetti straps, scoop neckline.
+- About ten gold-and-clear beaded starburst motifs (as in Image 3), scattered across the FRONT only, in the same positions as in Image 2.
+- A diagonal seam across the lower body and an asymmetric hem with soft ruffled flounce, as in Image 2.
+- Same length proportion as in Image 2.
+- Ignore the hanger, the store background, and any security tag. They are not part of the dress.
+
+Model: same face, sleek center-parted hair and low bun as Image 1. Natural standing pose, weight slightly on one leg, arms relaxed by her sides, calm neutral runway expression, eyes toward the camera. Simple nude strappy heels. Realistic slim runway-model body proportions, head not too small, legs not stretched.
+
+Light: one single soft light from the front-left at about 45 degrees, slightly above head height; the right side of her body falls into soft shadow. Neutral daylight color. No other lights.
+
+Background: plain medium-grey seamless studio backdrop, soft contact shadow on the floor under her feet. No props, no text, no logos.
+
+Real camera photo, 50mm full-length fashion look, natural optical softness, real fabric wrinkles. No CGI, no beauty filter, no skin smoothing.</pre>
+    </div>
+    <p>同一个对话接着做背面：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>全身背面</span><button class="copy" data-target="p-back">Copy</button></div>
+<pre id="p-back">Using the approved full-body photo above, create the BACK view of the same woman in the same dress: she stands still facing directly away from the camera, head to toe fully in frame, vertical 9:16. Same body proportions, same nude strappy heels, same sleek hair with the low bun at the nape clearly visible.
+
+Dress back (must match the original dress photo of the back):
+- Plain back with NO starburst embroidery at all. The embroidery is on the front only.
+- Thin spaghetti straps and one thin horizontal fabric strap across the upper back at shoulder-blade height.
+- Diagonal seam across the lower body continuing from the front, and the same asymmetric ruffled flounce hem.
+- Same pale butter-cream crinkled, slightly sheer fabric and the same length as the front view.
+- No security tag, no labels.
+
+Same light (single soft light from front-left, now falling on her back from the upper left), same plain medium-grey backdrop, same real photo quality. No text, no logos.</pre>
+    </div>
+    <p class="note">一定要写“店里的防盗扣不是裙子的一部分”，不然 AI 会把它当成装饰一直留着。正面和背面也拼成一张图。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>GPT 出 T 台首帧</h2></div>
+  <div class="body">
+    <p>开<b>新对话</b>，按顺序上传：脸部合成图（正面 + 侧面）、全身合成图（正面 + 背面）：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>T 台首帧</span><button class="copy" data-target="p-runway">Copy</button></div>
+<pre id="p-runway">Image 1 shows the model's face from two angles (front and three-quarter); it is one person. Image 2 shows the same model wearing the exact dress, front and back. Use her face, hair and the dress exactly as shown. Do not copy the grey studio background or the studio light from these images.
+
+Create one realistic photo: the opening wide shot of a live fashion show, vertical 9:16.
+
+Scene: a long, straight runway seen from its far end, camera at the center of the runway end at about waist height, looking straight down the runway. The runway is a glossy dark charcoal-grey floor with a soft reflection of the model. On both sides, the audience sits in long front rows, dressed mostly in black and dark neutrals, faces soft and partly out of focus, nobody looking at the camera. At the far end, a plain dark back wall with a simple opening where models enter. No signs, no screens, no text, no logos.
+
+Model: she is about one third of the way down the runway, walking toward the camera, caught mid-stride with her left foot forward, arms relaxed and swinging slightly, calm neutral runway expression, eyes looking straight ahead down the runway. Same sleek center-parted hair and low bun. The dress hem swings slightly with her step; the starburst embroidery on the front catches the light. Her full body is visible and she fills about one quarter of the frame height.
+
+Light (the only light): a straight row of bright white spotlights hanging directly above the runway, angled slightly toward the camera end, lighting her from above and slightly in front. Soft shadows under her brows and chin. The runway is brightly lit; the audience sits in darker spill light, clearly less bright than the runway. A few audience members' camera flashes fire as small bright white bursts in the side rows, but they do not light her. Neutral white color temperature. No colored lights, no stage haze, no other light sources.
+
+Look: clean digital cinema image, wide-angle lens with deep space; the runway lines lead toward her; neutral accurate skin tones, gentle contrast, clean shadows. Real event photo, natural optical softness, real fabric movement and wrinkles. No CGI, no beauty filter, no skin smoothing.</pre>
+    </div>
+    <p class="note">她在画面里太小的话，脸到了视频里容易变。我最后选的是她比较近、大约占画面一半的那张，脸和刺绣都看得清楚。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">5</div><h2>Seedance 2.5 一次拍出 15 秒走秀</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">模型 <b>Seedance 2.5</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">比例 <b>9:16</b></span>
+      <span class="chip">长度 <b>15s</b></span>
+      <span class="chip">码率 <b>High</b></span>
+      <span class="chip">原生音频 <b>开</b></span>
+    </div>
+    <p>T 台首帧一定要放在 <b>Start frame</b>，不是参考图。参考图<b>顺序不能错</b>：</p>
+    <ul class="order">
+      <li><code>Start</code><span>第 4 步的 T 台首帧</span></li>
+      <li><code>Image 1</code><span>脸部合成图（正面 + 3/4 侧面）</span></li>
+      <li><code>Image 2</code><span>全身合成图（穿裙子的正面 + 背面）</span></li>
+      <li><code>Image 3</code><span>刺绣特写截图</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>15 秒走秀（6 个镜头）</span><button class="copy" data-target="p-video">Copy</button></div>
+<pre id="p-video">[GOAL] A 15-second professional fashion show catwalk film: one model walks the runway in a cream embroidered slip dress, shot with moving cameras from many angles, strikes a series of poses at the end of the runway under a barrage of photographers' flashes, then turns and walks away as the camera rises high above the runway. Six shots, hard cuts only, fast and energetic like a real runway film.
+
+[REFERENCES]
+The video begins exactly from the start frame and keeps its runway, audience, lighting and look.
+Image 1 is the model's face, shown from two angles in one image (front and three-quarter); it is one person. Use only her face, hair and skin, not the grey background or studio light.
+Image 2 is the same model wearing the exact dress, front and back. Use only the dress, shoes and body proportions, not the grey background.
+Image 3 is a close-up of the beaded starburst embroidery on the dress.
+
+[LOCATION MAP] A long straight runway with a glossy dark charcoal-grey floor. Audience seated in rows on both sides, dressed in black and dark neutrals, faces soft and out of focus, some holding up phones. A plain dark back wall with a dark opening at the far end. A straight row of bright white spotlights hangs directly above the runway. At the near end of the runway is a photographers' pit: a crowd of photographers with professional cameras, seen only as dark out-of-focus silhouettes.
+
+[DRESS LOCK] Pale butter-cream crinkled, slightly sheer slip dress with thin spaghetti straps. About ten gold-and-clear beaded starbursts on the FRONT only, always in the same positions; never more, never fewer, never moving. The back is plain with one thin horizontal strap across the upper back. A diagonal seam across the lower body and an asymmetric sheer ruffled hem, longest on her right side. Nude strappy heels.
+
+0.0–2.5s — SHOT 1 (as the start frame): full body, wide-angle look with deep space, camera at the center of the runway end at waist height. Smooth stabilized push-in toward her as she walks toward the camera, so she grows larger in frame. Arms swinging slightly, hem swinging with each step. Eyes fixed straight ahead just above the camera.
+2.5s HARD CUT
+2.5–4.5s — SHOT 2: low angle, camera just above the runway floor in front of her, framing from her knees down. The camera glides backward at her walking speed, keeping the same distance. Her heels strike the glossy floor, each step reflected in it; the sheer ruffled hem swings and floats a half-beat behind her legs.
+4.5s HARD CUT
+4.5–6.5s — SHOT 3: side angle from the runway edge at hip height, telephoto close framing from her waist to mid-thigh; her face is NOT in frame. The camera tracks sideways parallel to her at exactly her walking speed. Out-of-focus heads of the front-row audience pass through the foreground. The beaded starbursts sparkle under the overhead lights; the crinkled fabric shifts with her hips.
+6.5s HARD CUT
+6.5–8.5s — SHOT 4: full body from the front, strong telephoto compression: the audience rows and back wall are flattened into soft out-of-focus bands. Stabilized camera drifting slowly backward as she approaches. More and more photographers' flashes start firing ahead of her as she nears the end of the runway.
+8.5s HARD CUT
+8.5–12.0s — SHOT 5: from inside the photographers' pit, framing from head to knees, slightly low angle, handheld with a slight natural shake, dark out-of-focus photographer silhouettes and camera shapes in the lower foreground. She stops at the end of the runway and holds three poses, each about one second, changing slowly and with control:
+pose 1: weight settled on one hip, arms relaxed down, eyes into the lens;
+pose 2: shoulders turned slightly to her left, chin slightly down, eyes still into the lens;
+pose 3: one hand resting lightly on her hip, chin level, one slow blink, then a steady look into the lens.
+Throughout this shot, a rapid continuous barrage of camera flashes fires from the photographers' pit.
+12.0s HARD CUT
+12.0–15.0s — SHOT 6: she pivots on the spot and walks away down the runway. The camera starts behind her at waist height, then rises quickly and smoothly straight up into a high overhead view looking down the runway, showing her walking away small in the center of the long bright runway with the dark audience rows on both sides. Her low bun, the thin back strap and the asymmetric hem are visible from behind.
+Only cut at the marked times. The camera never cuts on its own.
+
+[PERFORMANCE] Intent: calm, absolute confidence. Subtext: "Everyone is watching, and I am in control." Runway walk: steady fast pace, one foot directly in front of the other, shoulders relaxed, controlled hip movement, no exaggerated swing. Poses are subtle and real, like a professional model: small weight shifts, shoulder angles and chin angles, not big theatrical poses. No smiling, no talking, no waving, no open arms. Blinks are irregular; facial movement slightly asymmetric.
+
+[LIGHT] The main light in every shot is the straight row of bright white spotlights directly above the runway, angled slightly toward the camera end, lighting her from above and slightly in front, with soft shadows under her brows and chin. The audience sits in darker spill light. In Shots 1 to 4, phone and camera flashes are brief small white bursts in the side rows and do not light her. Only in Shot 5, the photographers' flashes fire from directly in front of her and each burst briefly lights her face and dress with a crisp white flash for an instant, then the image returns to the overhead spotlight look. Neutral white color temperature in every shot. No colored lights, no haze, no other light sources.
+
+[FILM LOOK] Clean digital cinema look, neutral accurate skin tones, gentle contrast, clean shadows, round soft bokeh in the telephoto shots, natural optical softness. Real fashion show footage, not CGI.
+
+[PHYSICS] Feet land with weight and never slide; heels show reflections on the glossy runway. Fabric moves a half-beat behind the body and settles when she stops. Camera moves are smooth and motivated, like a professional stabilizer and crane.
+
+[AUDIO] Native audio on. Only real sound: audience murmur, heels striking the runway, and in Shot 5 a rapid burst of many camera shutter clicks. No music, no voices speaking lines.
+
+[MAINTAIN CONSISTENCY] Same face, same sleek center-parted hair and low bun, same dress and embroidery positions, same shoes, same lighting, same runway and audience in every shot.
+
+[TECH SPEC] Real live-action footage, 24fps, 180-degree shutter, no text, no logos, no brand names on cameras or anywhere.</pre>
+    </div>
+    <p class="note">我这支 15 秒花了 105 credit，一次就出。跟拍、贴地拍高跟鞋、前景观众遮挡、长焦压缩、闪光灯连闪，这些都要写清楚，不写的话模型只会给你“放着拍”的固定镜头，一点都不像真的走秀。最后“镜头升高”那一下没做出来，但不影响成片。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">6</div><h2>剪成广告</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>旁白：</b>Higgsfield 用 ElevenLabs v4 生成一个温柔、偏低沉的女声，每句前面加 <code class="chip">[softly]</code>，介绍面料、线条、珠饰</li>
+      <li><b>字体：</b>不要用平常的综艺字幕，用细的衬线字，每个镜头放一个编号卖点（01 荷叶裙摆、02 星芒珠饰……），看起来才像高级宣传片</li>
+      <li><b>声音：</b>保留生成出来的现场音（脚步、快门），底下垫一层很轻的节拍就好</li>
+      <li><b>开头：</b>先放 1 秒摆 pose 的闪光灯画面，再切回商场的原片，前后对比最抓人</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
