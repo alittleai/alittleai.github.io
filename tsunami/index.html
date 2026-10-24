@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一段路人素材，AI 改成海啸现场 · 阿旺的 Prompt 库</title>
+<meta name="description" content="用 Higgsfield 的 Genjutsu 换人、Seedance 2.5 Video Edit 加海啸的完整 prompt、设定和踩坑">
+<meta property="og:title" content="一段路人素材，AI 改成海啸现场 · 阿旺的 Prompt 库">
+<meta property="og:description" content="用 Higgsfield 的 Genjutsu 换人、Seedance 2.5 Video Edit 加海啸的完整 prompt、设定和踩坑">
+<meta property="og:image" content="https://alittleai.github.io/assets/tsunami-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Doomsday Commute · 阿旺的 Prompt 包</div>
+  <h1>一段路人素材，<br>AI 改成<em>海啸现场</em></h1>
+  <p class="lede">同一段 11 秒的天桥路人素材，没有重拍：把一个路人换成阿旺，再加上冲垮城市的海啸，路人逃命，阿旺照常上班。下面是我实际用的 prompt、设定和踩过的坑。</p>
+  <div class="flow"><span>找路人素材</span><span class="arrow">→</span><span>Genjutsu 换人</span><span class="arrow">→</span><span>Seedance 加海啸</span><span class="arrow">→</span><span>Claude 剪上下对比</span></div>
+</header>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>找一段固定机位的路人素材</h2></div>
+  <div class="body">
+    <ul>
+      <li>机位固定不动，画面里有几个路人在走，10 秒左右就够</li>
+      <li>自己用手机架着拍，或去 Pexels 搜 <code class="chip">pedestrian bridge</code>、<code class="chip">people walking</code></li>
+      <li>素材太大（4K）先压成 1080p 再上传，比较快</li>
+    </ul>
+    <p class="note">挑素材最重要的一点：<b>路人要往镜头这边走。</b>后面加海啸时，AI 改不了原片里人走的方向，原本背对镜头往前走的人，会淡定地走进海啸里（就是片里那两位“同事”）。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>Genjutsu 把一个路人换成你的角色</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">工具 <b>Genjutsu</b></span>
+      <span class="chip">模式 <b>Objects swap</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">Prompt <b>开</b></span>
+    </div>
+    <p>要上传两样东西：</p>
+    <ul class="order">
+      <li><code>参考视频</code><span>第 1 步的路人素材</span></li>
+      <li><code>参考图</code><span>你的角色图（正面＋3/4 侧面拼在一张）</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>指定要换掉哪一个人</span><button class="copy" data-target="p-swap">Copy</button></div>
+<pre id="p-swap">Replace only the middle-aged man in the dark navy blue short-sleeve shirt carrying a white plastic bag, who walks toward the camera from the left side and comes closest to the camera around second 7 to 8, with the character in the reference image. The reference image shows the same character from two angles (front and three-quarter view). Keep his exact walking path, pace, timing and arm movement. He holds the same plastic bag. Keep every other pedestrian, the skybridge, the camera and the overcast lighting exactly unchanged.</pre>
+    </div>
+    <p class="note">第一句要把那个人写到别人不会认错：衣服颜色、手上拿什么、从哪边走进来、第几秒最靠近镜头。换你的素材时，只改这一句的描述就好。挑一个正面朝镜头走、会走得很近的人，角色最清楚。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>Seedance 2.5 Video Edit 加海啸</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">模型 <b>Seedance 2.5</b></span>
+      <span class="chip">模式 <b>Video Edit</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">码率 <b>High</b></span>
+      <span class="chip">音频 <b>关</b></span>
+    </div>
+    <p>上传的是<b>第 2 步换好人的那条</b>，不是原片：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>海啸＋路人逃命＋阿旺照常走</span><button class="copy" data-target="p-tsunami">Copy</button></div>
+<pre id="p-tsunami">Edit the uploaded video. Keep the same fixed camera, same framing, same covered pedestrian skybridge and the same overcast lighting. Do not add or remove anyone.
+
+DOG CHARACTER: keep the plush shiba dog with round glasses and a chest badge exactly as he is, carrying the plastic bag and walking toward the camera on the same path and at the same calm, normal pace for the whole clip. He is the only one who does not run. From second 5 to second 6.5, without stopping or slowing down, he clearly turns his head about 60 degrees toward the right side of the frame, toward the tsunami, so his face is seen in side profile, looks at it for about one second with a flat, tired, unbothered expression, then turns his head back to face the camera and keeps walking.
+
+OTHER PEDESTRIANS: within the first 2 seconds, every other pedestrian notices the tsunami, turns their head toward it, then runs fast toward the camera and out of the frame, in natural panic: quick steps, bags swinging, one person stumbles slightly and keeps running. Mouths closed or slightly open, no screaming faces, no wide-open mouths, no exaggerated poses.
+
+LIGHTING (match the original exactly): overcast daytime, the sky is the only light source, soft directionless daylight coming in from the open sides of the bridge and through the glass roof, pale hazy white-grey sky, no direct sun, no hard shadows, cool neutral color temperature, low contrast. No specular highlights on the water. If any part of the frame shows sunlight, warm light or glowing highlights, the shot is wrong.
+
+TSUNAMI (real disaster news footage, not a movie wave): from the first second, far in the background beyond the open right side of the bridge and behind the buildings at the far end, a low, wide, churning wall of muddy grey-brown seawater surges in fast, carrying debris: cars, wooden planks, broken trees and roofing. White foam boils on top and a thick mist of spray rises, softened by atmospheric haze. It is NOT a tall curling surfing wave, NOT a barrel wave, NOT a clean dark-blue wave. It slams into the buildings, the buildings crack and collapse, concrete debris flies, and the flood keeps spreading and destroying more of the city for the whole clip. The water and debris stay outside the bridge and never reach the walkway.
+
+Realistic photographic look, same as the original footage, like real amateur disaster footage. No text, no logos. No background music.</pre>
+    </div>
+    <p class="note">我踩过的 3 个坑：<br>
+    ① 只写 tsunami，会出来一道卷成管子的冲浪浪，假到爆。要写“灰褐色泥水、夹着车和木板、楼被冲垮”，还要直接写“不是卷浪”。<br>
+    ② 写“很远、被雾淡化、留在背景”，海啸会小到手机上看不见。要写“又大又快，从第 1 秒就冲进来”。<br>
+    ③ 光线一定要照原片写（这里是阴天、没有太阳、没有影子），不然加进来的东西一看就是贴上去的。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>Claude 剪成上下同步对比</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>版面：</b>竖版 9:16，上面放 AI 成品，下面放原片，两段同时播放，一眼看出是照原片改的，不是乱生成</li>
+      <li><b>标题：</b>最上面固定大字「海啸冲过来了 / 打工狗照常上班」</li>
+      <li><b>旁白：</b>HeyGen 生成阿旺的声音，按每句的停顿对齐画面，字幕跟旁白一字不差，重点词标黄</li>
+      <li><b>箭头：</b>往海啸里走的两个路人加黄色箭头「同事」，把 AI 改不动的地方变成笑点</li>
+      <li><b>定格：</b>阿旺大脸那一帧闪白定格，盖上红色「已打卡 ✓」印章，配“叮”一声</li>
+      <li><b>音效：</b>海啸低频轰鸣、水流声逐渐变大，阿旺说话时自动压低</li>
+      <li><b>结尾：</b>接「关注阿旺」结尾卡，BGM 最后自己加</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
