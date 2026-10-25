@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude 一次过丢我 20 种剪辑特效 · 阿旺的 Prompt 库</title>
+<meta name="description" content="只给一段口播，Claude 一次过做出 20 种剪辑特效：字压在人后面、图标环绕、截图飞入、前后对比……清单和指令都在这里">
+<meta property="og:title" content="Claude 一次过丢我 20 种剪辑特效 · 阿旺的 Prompt 库">
+<meta property="og:description" content="只给一段口播，Claude 一次过做出 20 种剪辑特效，清单和指令都在这里">
+<meta property="og:image" content="https://alittleai.github.io/assets/effects-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">留言「特效」的那支 · 阿旺的 Prompt 包</div>
+  <h1>Claude 一次过丢我<br><em>20 种</em>剪辑特效</h1>
+  <p class="lede">我只给了一段 HeyGen 口播和几段动作片段。剪接、20 种特效、字幕、音效、结尾卡，全部是 Claude 用代码做的，我没开剪辑软件。</p>
+  <div class="flow"><span>HeyGen 口播</span><span class="arrow">→</span><span>丢给 Claude</span><span class="arrow">→</span><span>20 种特效出片</span></div>
+  <img class="shot" src="../assets/effects-frames.jpg" alt="成片截图：字压在人后面、图标环绕、截图飞入、前后对比" loading="lazy">
+  <p class="cap">成片里的 4 种特效：字压在人后面、图标环绕、截图飞入、前后对比</p>
+</header>
+
+<section>
+  <div class="step"><div class="num">0</div><h2>先讲清楚，要有这些</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>能上传文件、能跑代码的 Claude</b>，特效是它写代码一帧一帧做出来的</li>
+      <li><b>它会花时间：</b>这条 40 秒的片，从收到口播到出片大概半小时，包括它自己抽帧检查</li>
+      <li><b>纯色背景最好：</b>口播背景越干净，「字压在人后面」这种要抠人的特效越干净</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>先做口播</h2></div>
+  <div class="body">
+    <p>阿旺的口播在 HeyGen 做，声音用 ElevenLabs v4。每句前面加 <code>[angry]</code>，就是阿旺那种被逼上班的语气。</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>HeyGen 旁白（阿旺版）</span><button class="copy" data-target="p-vo">Copy</button></div>
+<pre id="p-vo">[angry] Walao，上次Claude帮我剪的片
+[angry] 只有36%的人撑过3秒。
+[angry] 我就叫它，会的特效全部交出来。
+[angry] 它一次过丢我20种。
+[angry] 你现在看的这支，就是它重剪的。
+[angry] 字可以躲在我后面，
+[angry] 对话框直接弹在我旁边，
+[angry] 图标绕着我转，好像在拜神。
+[angry] 截图一张张飞进来，
+[angry] before after一拉就看到差别。
+[angry] 剩下的，我自己看到眼都花。
+[angry] 最气的是，我不用会code，
+[angry] 我只丢素材，剪辑全部它做。
+[angry] 要这20种特效的清单和指令，
+[angry] 留言「特效」，我私信给你。</pre>
+    </div>
+    <p class="note">动作片段（趴倒、举手、眼镜掉下来、翻倒、扭屁股）是之前在 Higgsfield 生成的阿旺动作包，丢给 Claude 让它自己挑哪句配哪个。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>丢给 Claude，打这一句</h2></div>
+  <div class="body">
+    <p>口播和动作包上传后，我打的就是这一句：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>视频里那一句</span><button class="copy" data-target="p-one">Copy</button></div>
+<pre id="p-one">直接用你的能力，然后做出最炫的特效，吸引观众。开始。</pre>
+    </div>
+    <p>想<b>一次就剪到这个程度</b>，用这个加强版，把下一步的特效清单一起贴上：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>加强版：一次剪好</span><button class="copy" data-target="p-full">Copy</button></div>
+<pre id="p-full">帮我把这段口播剪成一条竖屏短视频（1080×1920，9:16）。
+
+素材：
+- 口播：角色对嘴的画面和配音，顺序不要改，句子不要删
+- 动作片段：穿插用，自己挑最适合哪一句
+
+做法：
+1. 先把人物抠出来（背景是纯色），之后的大字、光圈、图标才能放在人后面
+2. 开头 2 秒不说话，先快闪几个最炫的特效，再接人物开口
+3. 每一句配一个特效，特效要对得上那句在讲什么，用下面的特效清单
+4. 画面上方放一个计数「特效 01/20」，每出一个新特效就加一
+5. 字幕放在画面下方安全区，字要大，句尾不要句号，只有少数关键词用黄色
+6. 每个特效配音效（嗖、砰、打字声、快门声），不要背景音乐
+7. 出片后自己抽帧检查：字幕有没有被切、音画是不是一样长、有没有黑帧
+
+先给我看几张截图确认风格，我说可以再出完整视频。</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>20 种特效清单</h2></div>
+  <div class="body">
+    <p>就是成片里出现的顺序。整段贴给 Claude，它就知道每一种要做成什么样：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>20 种特效清单</span><button class="copy" data-target="p-list">Copy</button></div>
+<pre id="p-list">01 冲击变焦：讲到重点字时画面瞬间推近，再慢慢退回，加一点晃动
+02 留存曲线：深色卡片，数字从 0 跳到目标值，曲线一路画下来
+03 终端打字：黑色终端窗口，绿字一个一个打出来，光标闪
+04 故障转场：画面红蓝分离、横条错位 0.2 秒
+05 点阵大字：大字由一颗颗发光圆点组成，圆点随机亮起
+06 金句高亮：一句结论用黄色底黑色粗字弹出来，微微倾斜
+07 字压在人后面：抠出人物，大字放在人和背景中间，头挡住字的下半
+08 对话框弹出：人物缩到一边，AI 对话框弹在旁边，回复逐字打出
+09 图标环绕：几个图标绕着人物转，转到后面时被人物挡住，背后加金色光圈
+10 截图飞入：前面几段的截图从下面飞进来，排成扇形
+11 拍立得：截图加白边，下方写小标题
+12 前后对比：中间一条分割线左右拉，左边原片、右边成片
+13 三格分屏：同一个画面切成三格，三种色调
+14 画中画：画面缩成圆角浮窗，背景模糊，浮窗带光晕
+15 逐词高亮：几个大字排成一列，黄色底块一个一个跳过去
+16 增长图表：柱状图往上长，加一条往上的箭头（不放假数字）
+17 提示词并排：上半是画面，下半是提示词，关键句用黄色高亮
+18 定格贴纸：人物抠出来加粗白边，像贴纸一样贴在黄色波点背景上
+19 闪白转场：画面闪白再淡回来，配快门声
+20 方法卡片：01 / 02 / 03 编号卡片一张张弹出，总结步骤</pre>
+    </div>
+    <p class="note">一条片不用 20 种全部塞进去。阿旺这支是故意全部放，平常挑 3–5 种对得上台词的就够炫了。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>Claude 实际怎么剪的</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>抠人物：</b>阿旺的背景是纯深蓝色，Claude 按颜色把阿旺抠出来，再重画一张同色背景，这样大字和光圈才放得进他后面</li>
+      <li><b>改成竖屏：</b>HeyGen 给的是方形画面，阿旺放大放在下半部，上面空出来放特效</li>
+      <li><b>对时间：</b>按口播的停顿切出每一句的时间点，每一句配一个特效和一个音效</li>
+      <li><b>动作片段：</b>「36%」接趴倒、「拜神」接举双手、「眼都花」接眼镜掉下来、「最气的是」接翻倒</li>
+      <li><b>开头钩子：</b>前 1.6 秒不说话，快闪 4 个特效，再接阿旺跳起来扑镜头</li>
+      <li><b>音效：</b>嗖声、砰声、打字声、快门声全部是 Claude 用代码合成的，不放背景音乐，BGM 我自己加</li>
+      <li><b>结尾卡：</b>阿旺趴着扭屁股，「关注阿旺，不然老板扣我狗粮」</li>
+      <li><b>自己检查：</b>出片后每 2 秒抽一帧拼成一张图看，确认字幕没被切、音画一样长、音量不爆</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>阿旺的动作片段是在 Higgsfield 生成的。用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
