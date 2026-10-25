@@ -7,7 +7,7 @@
 <meta name="description" content="只给一段口播，Claude 一次过做出 20 种剪辑特效：字压在人后面、图标环绕、截图飞入、前后对比……清单和指令都在这里">
 <meta property="og:title" content="Claude 一次过丢我 20 种剪辑特效 · 阿旺的 Prompt 库">
 <meta property="og:description" content="只给一段口播，Claude 一次过做出 20 种剪辑特效，清单和指令都在这里">
-<meta property="og:image" content="https://alittleai.github.io/assets/effects-cover.jpg">
+<meta property="og:image" content="https://alittleai.github.io/assets/effects-cover-v2.jpg">
 <link rel="icon" href="../assets/awang.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
@@ -21,8 +21,8 @@
 <header>
   <div class="eyebrow">留言「特效」的那支 · 阿旺的 Prompt 包</div>
   <h1>Claude 一次过丢我<br><em>20 种</em>剪辑特效</h1>
-  <p class="lede">我只给了一段 HeyGen 口播和几段动作片段。剪接、20 种特效、字幕、音效、结尾卡，全部是 Claude 用代码做的，我没开剪辑软件。</p>
-  <div class="flow"><span>HeyGen 口播</span><span class="arrow">→</span><span>丢给 Claude</span><span class="arrow">→</span><span>20 种特效出片</span></div>
+  <p class="lede">我只给了一段口播和几段动作片段。剪接、20 种特效、字幕、音效、结尾卡，全部是 Claude 用代码做的，我没开剪辑软件。</p>
+  <div class="flow"><span>准备素材</span><span class="arrow">→</span><span>丢给 Claude</span><span class="arrow">→</span><span>20 种特效出片</span></div>
   <img class="shot" src="../assets/effects-frames.jpg" alt="成片截图：字压在人后面、图标环绕、截图飞入、前后对比" loading="lazy">
   <p class="cap">成片里的 4 种特效：字压在人后面、图标环绕、截图飞入、前后对比</p>
 </header>
@@ -33,41 +33,26 @@
     <ul>
       <li><b>能上传文件、能跑代码的 Claude</b>，特效是它写代码一帧一帧做出来的</li>
       <li><b>它会花时间：</b>这条 40 秒的片，从收到口播到出片大概半小时，包括它自己抽帧检查</li>
-      <li><b>纯色背景最好：</b>口播背景越干净，「字压在人后面」这种要抠人的特效越干净</li>
     </ul>
   </div>
 </section>
 
 <section>
-  <div class="step"><div class="num">1</div><h2>先做口播</h2></div>
+  <div class="step"><div class="num">1</div><h2>准备素材</h2></div>
   <div class="body">
-    <p>阿旺的口播在 HeyGen 做，声音用 ElevenLabs v4。每句前面加 <code>[angry]</code>，就是阿旺那种被逼上班的语气。</p>
-    <div class="prompt">
-      <div class="prompt-head"><span>HeyGen 旁白（阿旺版）</span><button class="copy" data-target="p-vo">Copy</button></div>
-<pre id="p-vo">[angry] Walao，上次Claude帮我剪的片
-[angry] 只有36%的人撑过3秒。
-[angry] 我就叫它，会的特效全部交出来。
-[angry] 它一次过丢我20种。
-[angry] 你现在看的这支，就是它重剪的。
-[angry] 字可以躲在我后面，
-[angry] 对话框直接弹在我旁边，
-[angry] 图标绕着我转，好像在拜神。
-[angry] 截图一张张飞进来，
-[angry] before after一拉就看到差别。
-[angry] 剩下的，我自己看到眼都花。
-[angry] 最气的是，我不用会code，
-[angry] 我只丢素材，剪辑全部它做。
-[angry] 要这20种特效的清单和指令，
-[angry] 留言「特效」，我私信给你。</pre>
-    </div>
-    <p class="note">动作片段（趴倒、举手、眼镜掉下来、翻倒、扭屁股）是之前在 Higgsfield 生成的阿旺动作包，丢给 Claude 让它自己挑哪句配哪个。</p>
+    <ul>
+      <li><b>一段口播：</b>人物对嘴讲话的视频，配音已经在里面</li>
+      <li><b>几段动作片段：</b>5 秒左右，趴倒、举手、跌倒这种夸张动作，穿插用</li>
+      <li><b>纯色背景：</b>人物后面越干净，Claude 越容易把人抠出来做特效</li>
+    </ul>
+    <p class="note">阿旺的口播是 HeyGen 做的，动作片段是在 Higgsfield 生成的。你用自己拍的片段也一样可以。</p>
   </div>
 </section>
 
 <section>
   <div class="step"><div class="num">2</div><h2>丢给 Claude，打这一句</h2></div>
   <div class="body">
-    <p>口播和动作包上传后，我打的就是这一句：</p>
+    <p>素材全部上传，然后打这一句：</p>
     <div class="prompt">
       <div class="prompt-head"><span>视频里那一句</span><button class="copy" data-target="p-one">Copy</button></div>
 <pre id="p-one">直接用你的能力，然后做出最炫的特效，吸引观众。开始。</pre>
