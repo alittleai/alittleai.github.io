@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>火柴人动画一集 1450 万，只要用对工具 · 阿旺的 Prompt 库</title>
+<meta name="description" content="10 条火柴人动画涨 22 万粉。阿旺拆了它的数据，再用 GPT Image + Kling 4.0 做出阿旺版第一集，首帧和视频 prompt 都在这里">
+<meta property="og:title" content="火柴人动画一集 1450 万，只要用对工具 · 阿旺的 Prompt 库">
+<meta property="og:description" content="用 GPT Image + Kling 4.0 做火柴人风格动画，首帧和视频 prompt 直接 copy">
+<meta property="og:image" content="https://alittleai.github.io/assets/stickman-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">留言「火柴人」的那支 · 阿旺的 Prompt 包</div>
+  <h1>火柴人动画一集 <em>1450 万</em><br>只要用对工具</h1>
+  <p class="lede">我把那个 10 条视频涨 22 万粉的动画号拆了一遍，再用同一类工具做了阿旺版第一集：先出一张 2D 首帧，再让它动起来。</p>
+  <div class="flow"><span>写第一集钩子</span><span class="arrow">→</span><span>GPT Image 出首帧</span><span class="arrow">→</span><span>Kling 4.0 动起来</span><span class="arrow">→</span><span>Claude 剪片</span></div>
+  <img class="shot" src="../assets/stickman-frames.jpg" alt="阿旺版动画：左边是首帧，右边是 Kling 4.0 动起来后的最后一帧" loading="lazy">
+  <p class="cap">左：GPT Image 出的首帧　右：Kling 4.0 动起来后的最后一帧</p>
+</header>
+
+<section>
+  <div class="step"><div class="num">0</div><h2>先讲清楚：爆的不是动画</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>播放一集比一集少：</b>第一集 1450 万，第二集剩 420 万，大结局只剩 30 万左右</li>
+      <li><b>真正爆的是第一集的钩子：</b>一千万美金现金，观众留言投票决定剧情</li>
+      <li><b>钱不是靠播放量：</b>主页挂的是付费会员（Founder's Pass），播放只是把人带进来</li>
+    </ul>
+    <p class="note">工具人人都有。难的是你那个第一集：一句话就让人想知道下一集。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>写第一集的钩子</h2></div>
+  <div class="body">
+    <p>阿旺这集只拍一个画面：凌晨 3 点，加薪名单上只有他的名字被划掉。故事分拍是这样写的，换成你自己的角色和事件就行：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>第一集故事分拍</span><button class="copy" data-target="p-story">Copy</button></div>
+<pre id="p-story">1. 3 a.m. A-Wang is the last one in the dark office, slumped at his desk.
+2. The printer suddenly wakes up and prints one page.
+3. Close-up: the page is the boss's raise list for next year.
+4. Only one name is crossed out in red: A-Wang.
+5. A-Wang slowly folds the page and puts it in his hoodie pocket.
+6. He stares at the camera. Tomorrow, he will do something. You decide what.</pre>
+    </div>
+    <p class="note">最后一句「你来决定」就是投票钩子，让观众留言，下一集照留言拍。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>GPT Image 出首帧</h2></div>
+  <div class="body">
+    <p>先上传你的角色照片，再贴下面这段。阿旺用的是毛绒公仔的照片，它会重画成 2D 卡通版：</p>
+    <ul class="order">
+      <li><code>Image 1</code><span>角色照片（只拿脸、颜色、眼镜、徽章，不拿背景）</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>首帧图 prompt</span><button class="copy" data-target="p-frame">Copy</button></div>
+<pre id="p-frame">Image 1 is the character reference only: a shiba inu plush mascot with orange fur, cream face and chest, round thin black glasses, a small round dark badge on the chest. Do not copy the photo style, pose, background or lighting of Image 1.
+
+Create a single frame from a 2D illustrated animated short, in the style of clean modern webcomic animation: bold clean outlines, flat colors with soft cel shading, moody cinematic mood. The character is redrawn as a simple 2D cartoon version of this shiba: same orange and cream colors, same round thin black glasses, same small round dark chest badge, tired half-closed deadpan eyes, wearing a plain grey hoodie.
+
+Scene: 3 a.m., a dark empty open-plan office. Medium shot at seated eye level, vertical 9:16. The cartoon shiba sits at his desk in the center of the frame, seen from the chest up with the desk edge at the bottom, holding one printed A4 page up in both paws with the page facing the camera. On the page: several short grey lines like a list of names, and exactly one line in the middle is crossed out with a thick red pen stroke. No readable words or letters anywhere. Background: rows of empty desks fading into darkness, one office printer on a cabinet behind him on the right with a small glowing orange status light.
+
+Lighting (only these two sources): the only main light is the cold blue glow of his computer monitor at the front-left of him, lighting the left side of his face and the paper; the right side of his face falls into soft blue-grey shadow. The only other light is the small warm orange dot on the printer behind him. Ceiling lights are off. No other lamps or windows.
+
+No text, no captions, no logos, no brand names.</pre>
+    </div>
+    <p class="note">光线只写一个主光源（左边电脑屏幕的蓝光），画面才有立体感，不会平平的。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>Kling 4.0 让它动起来</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">Kling 4.0</span>
+      <span class="chip">Image to Video</span>
+      <span class="chip">9:16</span>
+      <span class="chip">4 秒</span>
+      <span class="chip">720p</span>
+      <span class="chip">2 credits</span>
+    </div>
+    <ul class="order">
+      <li><code>Start frame</code><span>上一步出的首帧图</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>视频 prompt</span><button class="copy" data-target="p-video">Copy</button></div>
+<pre id="p-video">Image 1 is the start frame. Keep its exact 2D illustrated cartoon style (bold clean outlines, flat colors, soft cel shading), the same character, the same office, the same framing. 2D animation, not 3D, not live action.
+
+LIGHT (fixed for the whole shot, exactly as in the start frame): the only main light is the cold blue glow of the computer monitor at the screen-left foreground, lighting the left side of the shiba's face and the paper; the right side of his face stays in soft blue-grey shadow. The only other light is the small warm orange status dot on the printer behind him on the right. Ceiling lights stay off. No new lights, light never changes direction.
+
+CAMERA: completely locked tripod. No push-in, no zoom, no pan, no tilt, no cut. Framing stays identical to the start frame.
+
+BADGE: the small round dark badge on his chest is a flat embroidered patch sewn tightly onto his chest fur, like part of the costume. It does not hang, swing, bounce, slide or change size. It stays at exactly the same spot on his chest and only moves together with his chest, which barely moves.
+
+ACTION (one thing at a time, small and slow):
+0.0-1.5s: he slowly lowers the page flat onto the desk with both paws; his shoulders and chest stay almost still, only his arms move.
+1.5-2.5s: still. One small slow swallow.
+2.5-4.0s: he lifts only his eyes to look straight into the camera, one slow tired blink, deadpan half-closed eyes, mouth closed. Head stays still. He stays still to the end.
+
+RESTRAINT: no smile, no open mouth, no talking, no leaning forward, no body bounce. Glasses stay on his face. The paper keeps grey lines and exactly one red line; no readable text, no logos. No audio.</pre>
+    </div>
+    <p class="note">踩过的坑：第一次镜头有慢慢推近，胸前的徽章跟着晃，看起来很假。改成镜头完全不动，再写明徽章是「缝在胸口的布章」，就稳了。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>Claude 实际怎么剪的</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>开头钩子：</b>第一秒就是那个动画号第一集的画面，大字「一集 1450 万播放」，再弹出播放量截图当证据</li>
+      <li><b>数据图：</b>把 10 集的真实播放量做成柱状图，一根一根长出来，大结局那根标红</li>
+      <li><b>字压在人后面：</b>把阿旺抠出来，「钩子」两个大字放在他头后面</li>
+      <li><b>画中画：</b>讲第一集剧情时，原片缩成带光晕的浮窗边讲边播</li>
+      <li><b>金句卡：</b>「播放只是鱼饵，付费才是鱼钩」用色块大字单独弹出</li>
+      <li><b>剪紧节奏：</b>口播里每句之间的停顿全部剪短，整条快了 4 秒多</li>
+      <li><b>音效：</b>嗖声、砰声、滴答声全部用代码合成，不放背景音乐，BGM 我自己加</li>
+      <li><b>结尾卡：</b>阿旺趴着扭屁股，「关注阿旺，不然老板扣我狗粮」</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>首帧图和 Kling 4.0 动画都是在 Higgsfield 上做的。用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
