@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>nasi lemak 自己跳出来了 · 阿旺的 Prompt 库</title>
+<meta name="description" content="一张手机随手拍的 nasi lemak 照片，变成会跳出来、会讲话的饭团角色：GPT 和 Kling 4.0 的完整 prompt 和设定">
+<meta property="og:title" content="nasi lemak 自己跳出来了 · 阿旺的 Prompt 库">
+<meta property="og:description" content="一张手机随手拍的 nasi lemak 照片，变成会跳出来、会讲话的饭团角色：GPT 和 Kling 4.0 的完整 prompt 和设定">
+<meta property="og:image" content="https://alittleai.github.io/assets/nasilemak-cover.jpg">
+<link rel="icon" href="../assets/awang.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap"><a class="top" href="../"><img src="../assets/awang.jpg" alt=""><span>阿旺的 Prompt 库</span><small>← 全部视频</small></a></div>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">留言「nasi lemak」的那支 · 阿旺的 Prompt 包</div>
+  <h1>老板不请网红，<br>我叫 <em>nasi lemak</em> 自己出来卖</h1>
+  <p class="lede">一张手机随手拍的纸包照片，变成会自己跳出来、还会讲话的饭团角色。下面是我实际用的全部 prompt 和设定，你家卖什么，换成你的产品照样能拍。</p>
+  <div class="flow"><span>随手拍</span><span class="arrow">→</span><span>GPT 补图 + 做角色</span><span class="arrow">→</span><span>GPT 合成尾帧</span><span class="arrow">→</span><span>Kling 4.0 动起来</span><span class="arrow">→</span><span>Claude 剪片</span></div>
+  <img class="shot" src="../assets/nasilemak-frames.jpg" alt="左边是手机拍的纸包照片，右边是饭团角色站在打开的纸上" loading="lazy">
+  <p class="cap">左：手机随手拍（首帧）　右：GPT 合成的尾帧</p>
+</header>
+
+<section>
+  <div class="step"><div class="num">0</div><h2>先讲最重要的一招：锁死第一帧</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>只打字：</b>同样的 prompt 不放照片，Kling 把纸包换成纸袋和纸盒，饭团也变成另一只</li>
+      <li><b>锁死首帧和尾帧：</b>包装、桌子、光线全部是你那张照片，饭团就是你定好的那只</li>
+    </ul>
+    <p class="note">做产品片，观众要认得出是你家的东西。所以永远先有图，再生成视频，不要只丢文字。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">1</div><h2>随手拍一张</h2></div>
+  <div class="body">
+    <ul>
+      <li>光从一侧来（窗边或店门口的自然光），不要闪光灯</li>
+      <li>产品放在画面下半部，上面留空，等一下角色要从里面跳出来</li>
+      <li>大约 45 度斜着往下拍；手、路人、招牌 logo 不要入镜</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">2</div><h2>GPT 把照片补成 9:16</h2></div>
+  <div class="body">
+    <p>开一个<b>新的 GPT 对话</b>，上传你的照片，贴上这段：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>补成 9:16、变清楚</span><button class="copy" data-target="p-extend">Copy</button></div>
+<pre id="p-extend">Extend this exact photo to a 9:16 vertical image and make it sharper and higher resolution.
+
+Keep everything that is already in the photo the same: the two brown paper nasi lemak packets, their folds, positions and size, the black glossy speckled table, the small white crumbs on the table.
+
+Add only more of the same black table above the packets, so the packets sit in the lower third of the frame and there is empty table space above them. Also extend a little at the bottom.
+
+Lighting must stay exactly as in the original: one indoor ceiling light above and slightly behind the packets, reflecting as a bright spot on the glossy black table; the tops of the packets are brighter, the sides facing the camera are slightly darker. No new light sources, no extra reflections, no window light.
+
+Must look like a real phone photo: slight grain, natural, not CGI, not over-smoothed. No text, no logos, no hands, no people.</pre>
+    </div>
+    <p class="note">你的照片光线不一样的话，把 Lighting 那一段改成你照片里真的看到的光。这一句写错，后面每一步都会歪。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">3</div><h2>GPT 做角色设定图</h2></div>
+  <div class="body">
+    <p>再开一个<b>新对话</b>，不用放图，直接贴：</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>饭团角色设定（正面 + 侧面）</span><button class="copy" data-target="p-char">Copy</button></div>
+<pre id="p-char">Create a character reference image: ONE character shown from two angles side by side — left: front view, right: 3/4 view. Same character, same size, same pose, both full body. Landscape 3:2. Plain light grey seamless background. No text, no labels, no logos.
+
+Character: a small cute nasi lemak creature, about the size of a fist. Its body is a rounded mound of real cooked coconut rice — individual rice grains clearly visible, slightly glossy, real food texture, not plastic, not clay. On top of its head sits a messy dollop of dark red sambal like hair, real oily sambal texture with chili flakes. Two small round glossy black eyes and a small closed-mouth confident smile (mouth closed, no teeth). Two short stubby arms made of the same rice, one hand on its hip. Short stubby rice legs. Nothing else — no egg, no cucumber, no peanuts, no clothes, no props.
+
+Style: cute stylized proportions (big head, small body) but every material must look like real photographed food, like premium food photography. Not a cartoon drawing, not CGI-shiny.
+
+Lighting: one warm-white indoor ceiling light above and slightly in front of the character. Top of the sambal and rice has soft highlights; lower body slightly darker; soft contact shadow under the feet. No rim lights, no colored lights, no extra light sources. Both views lit identically.</pre>
+    </div>
+    <p class="note">换成你的产品：把 Character 那段的材料换掉，比如咖啡粉做身体、辣椒酱当头发。重点是「用真的食物材质」，不要卡通，不然放回真照片里会很假。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">4</div><h2>GPT 合成尾帧：角色已经站出来</h2></div>
+  <div class="body">
+    <p>开一个<b>新对话</b>，上传两张图，<b>顺序不能错</b>：</p>
+    <ul class="order">
+      <li><code>Image 1</code><span>第 2 步补好的 9:16 照片</span></li>
+      <li><code>Image 2</code><span>第 3 步的角色设定图</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>尾帧：纸包打开、角色站在纸上</span><button class="copy" data-target="p-end">Copy</button></div>
+<pre id="p-end">Image 1 is a real phone photo. Image 2 shows ONE character from two angles (front and slightly turned) — it is the same single character, not two.
+
+Edit Image 1 only as follows, keeping it a 9:16 real phone photo with the exact same camera angle, table, crumbs, reflections and light:
+
+1. The FRONT (lower-right) paper packet is now unfolded open: its brown paper lies opened flat on the table, the folds and creases still visible, with a small smear of red sambal and a few loose rice grains on the paper. Nothing else inside the paper.
+2. The character from Image 2 stands on the opened paper, facing the camera, full body visible, about as tall as the closed packet was. One hand on its hip, closed-mouth confident smile, eyes looking at the camera. Same rice texture, same sambal hair, same black eyes as Image 2.
+3. The BACK (upper-left) packet stays exactly as it is — closed, unchanged.
+
+Lighting stays exactly as in Image 1: one warm-white indoor ceiling light above and slightly behind the packets, the same bright spot reflection on the black table. The top of the character's sambal hair catches that light; the side of the character facing the camera is slightly darker but the face is still clearly readable. A soft contact shadow and a faint reflection of the character on the glossy table. No new light sources.
+
+Must still look like a real phone photo, not CGI. No text, no logos, no hands, no people.</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">5</div><h2>Kling 4.0：纸包打开、角色跳出来</h2></div>
+  <div class="body">
+    <div class="chips">
+      <span class="chip">模型 <b>Kling 4.0</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">比例 <b>9:16</b></span>
+      <span class="chip">长度 <b>5s</b></span>
+      <span class="chip">码率 <b>High</b></span>
+      <span class="chip">声音 <b>关</b></span>
+    </div>
+    <p>用<b>首尾帧</b>模式上传：</p>
+    <ul class="order">
+      <li><code>Start</code><span>第 2 步补好的照片（纸包还没打开）</span></li>
+      <li><code>End</code><span>第 4 步的尾帧（角色站在纸上）</span></li>
+    </ul>
+    <div class="prompt">
+      <div class="prompt-head"><span>纸包打开 → 角色跳出来</span><button class="copy" data-target="p-pop">Copy</button></div>
+<pre id="p-pop">A real phone video. The start frame is a real photo of two closed brown paper nasi lemak packets on a black glossy speckled table. The end frame shows the front packet opened flat with a small rice-and-sambal character standing on it. Animate the change between them.
+
+0.0–1.0s: Everything still. Both packets closed. Only a tiny paper tremble on the FRONT (lower-right) packet.
+1.0–2.5s: The front packet's paper flaps pop open by themselves one at a time and fall outward, unfolding flat onto the table. Real paper with weight: creases stay visible, edges settle with a small bounce.
+2.5–3.5s: From inside the opened paper, the small character springs up in one quick hop and lands on the paper with a soft squash and settle. A few rice grains and a tiny drop of sambal scatter onto the paper.
+3.5–5.0s: The character steadies itself, raises one hand, looks straight at the camera with a small closed-mouth confident smile, and holds still. Ends exactly matching the end frame.
+
+The BACK (upper-left) packet never moves, stays closed the whole time.
+Character: body of real cooked white rice with visible grains, messy dark red oily sambal on its head like hair, two small glossy black eyes, small closed-mouth smile. Same size throughout. Mouth stays closed. No big poses, no dancing, no waving arms around.
+
+Lighting (fixed, exactly as the start frame): one warm-white indoor ceiling light above and slightly behind the packets, reflecting as one bright spot on the black table. Tops of the paper and the character's sambal catch the light; sides facing the camera are slightly darker. Soft contact shadows. No new light sources, no light changes, no flicker.
+
+Camera: completely locked off, same angle as the start frame for all 5 seconds. No zoom, no pan, no tilt, no reframing, no drift.
+
+Look: real handheld-phone footage of a real table, natural, not CGI, not cartoon render, not glossy. No text, no logos, no hands, no people. No music.</pre>
+    </div>
+    <p class="note">5 秒 720p 大约 2.5 credit。我这条中间「跳起来」那不到 1 秒有点乱（角色突然变大、脸看不见），不用重抽：剪掉那一段，直接从「探头」跳切到「站好」，加一个 pop 音效，反而更有节奏。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">6</div><h2>让它开口讲话</h2></div>
+  <div class="body">
+    <p>先用 GPT 换一个<b>贴着桌面的低机位近景</b>当首帧。开<b>新对话</b>，上传两张图：<code>Image 1</code> 第 4 步的尾帧，<code>Image 2</code> 角色设定图。</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>低机位近景首帧</span><button class="copy" data-target="p-close">Copy</button></div>
+<pre id="p-close">Image 1 is a real phone photo of a scene. Image 2 shows ONE character from two angles — the same single character, not two.
+
+Make a new 9:16 photo of the SAME scene from a different camera position: the camera is now very low, almost at table level, about 25 cm in front of the character, looking straight at it. Close-up: the character fills the lower two-thirds of the frame, head to feet visible, standing on the same crumpled brown paper. Telephoto look: shallow depth of field, the character is sharp, the background is soft and blurred.
+
+Background (blurred): the black glossy speckled table, the closed brown paper packet as a soft blurred shape on the left behind the character, and the bright ceiling-light reflection on the table as a soft round glow behind the character's head on the right.
+
+Character: exactly as Image 2 — real cooked white rice body with visible grains, messy dark red oily sambal on its head, two small glossy black eyes, small closed-mouth smile. One hand resting on its hip. Looking straight into the camera.
+
+Lighting: the same single warm-white ceiling light as Image 1, now above and slightly behind the character: the top of the sambal hair has a warm bright edge; the face is in soft gentle shadow but clearly readable, lifted a little by light bouncing off the paper below. No new light sources, no front fill light.
+
+Must look like a real macro phone photo of real food, not CGI, not a cartoon render. No text, no logos, no hands, no people.</pre>
+    </div>
+    <p>再丢进 Kling 4.0：</p>
+    <div class="chips">
+      <span class="chip">模型 <b>Kling 4.0</b></span>
+      <span class="chip">画质 <b>720p</b></span>
+      <span class="chip">比例 <b>9:16</b></span>
+      <span class="chip">长度 <b>5s</b></span>
+      <span class="chip">码率 <b>High</b></span>
+      <span class="chip">声音 <b>开</b></span>
+      <span class="chip">首帧 <b>上面的近景</b></span>
+    </div>
+    <div class="prompt">
+      <div class="prompt-head"><span>叉腰讲一句话</span><button class="copy" data-target="p-talk">Copy</button></div>
+<pre id="p-talk">A real macro phone video, continuing exactly from the start image: a small character made of real cooked white rice with messy dark red oily sambal on its head, standing on crumpled brown paper on a black glossy table, low camera at table level, shallow depth of field, blurred paper packet on the left and a soft round light glow behind its head on the right.
+
+0.0-0.8s: The character stands still, looking straight into the camera.
+0.8-1.4s: It puts one stubby rice hand on its hip and lifts its chin slightly, proud and a little cheeky.
+1.4-3.8s: It speaks one line straight to the camera, mouth opening only small and cute, never wide: "Sambal 我自己炒的，辣死你哦。" Spoken in Mandarin Chinese with a Malaysian Chinese accent, a small, bright, cheeky voice, confident like a proud hawker. No other words.
+3.8-5.0s: After the line it gives one small smug head tilt to one side, closes its mouth into a small smile, and holds still looking at the camera.
+
+Only this one character moves. Its feet stay planted on the paper, no jumping, no walking, no dancing, no big arm movements. The rice grains on its body stay in place; the sambal hair wobbles very slightly once when it tilts its head, then settles.
+
+Lighting (fixed, exactly as the start image): one warm-white ceiling light above and slightly behind the character, giving a warm bright edge on the top of the sambal hair and the soft round glow in the blurred background; the face is evenly visible with gentle soft light bounced from the paper below. No new light sources, no light changes, no flicker.
+
+Camera: locked off, low at table level, same framing as the start image for the whole shot. No zoom, no pan, no tilt, no drift. Background stays blurred.
+
+Audio: only the character's one spoken line and a tiny soft paper rustle. No music, no background voices.
+
+Look: real macro phone footage of real food, natural texture, not CGI, not a cartoon render. No text, no subtitles, no logos, no hands, no people.</pre>
+    </div>
+    <p class="note">台词换成你产品的卖点就好，一句就够，越短嘴型越稳。写明「嘴巴小小地开、不要张大」，不然很容易变成张大嘴的假笑。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step"><div class="num">7</div><h2>Claude 实际怎么剪的</h2></div>
+  <div class="body">
+    <ul>
+      <li><b>开场：</b>直接从纸包弹开那一刻开始，前面不动的 1.7 秒全部剪掉，第一句旁白压在钩子画面上</li>
+      <li><b>字压在人后面：</b>把阿旺抠出来，「RM0 网红」大字放在他头后面，耳朵挡住一点字</li>
+      <li><b>呼吸感：</b>阿旺讲话时镜头先推近、再一下拉回全景，空出来的位置刚好放大字</li>
+      <li><b>流程快闪：</b>GPT 补图、做角色、合成尾帧的录屏，每一步只留出图那 0.7 秒</li>
+      <li><b>前后对比：</b>先放原本的纸包 0.7 秒，再上下分格放「只打字」vs「锁死第一帧」</li>
+      <li><b>字幕：</b>大字放胸口位置，避开 IG 底部按钮，只把关键词标黄，句尾不加句号</li>
+      <li><b>音效：</b>纸声、pop、转场呼声、大字砸下来的重低音；没有放音乐，BGM 最后自己加</li>
+      <li><b>结尾：</b>阿旺趴着扭屁股的「关注阿旺」卡</li>
+    </ul>
+  </div>
+</section>
+
+<div class="deal">
+  <h2>我用的工具：Higgsfield</h2>
+  <p>用下面的链接注册，登录后会有<b>最高 5 折</b>的个人折扣。</p>
+  <div class="link-row">
+    <a href="https://higgsfield.ai?fpr=alittleai" target="_blank" rel="noopener">打开 Higgsfield</a>
+    <span class="small">higgsfield.ai?fpr=alittleai</span>
+  </div>
+  <p class="small">这是推广链接，你通过它订阅的话，阿旺会拿到一点佣金，你的价格不会变贵。折扣在<b>登录后 3 小时内有效</b>，建议先想好要哪个方案再点。</p>
+</div>
+
+<footer>
+  <strong>关注阿旺</strong>
+  每天帮你试最新的 AI 工具，不然老板扣我狗粮
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent;
+    function done(){ btn.textContent = '已复制'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = '已选取，长按复制';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
